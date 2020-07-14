@@ -1,7 +1,12 @@
 <h1>welcome to all your journals</h1>
-
-
-<%@journals.each do |journal|%>
-title: <%= journal.title%>
+<a href="/journal/new"> create new journal</a>
+<p></p>
+<br>
+<% @journal.each do |journal|%>
+<p>title: <%= journal.title%> 
 content: <%= journal.content%>
+<a href="/journal/<%=journal.id%>/edit">edit posts</a>
+</p>
+
 <%end%>
+<br>

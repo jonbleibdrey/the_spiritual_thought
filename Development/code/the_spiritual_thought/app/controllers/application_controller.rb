@@ -2,13 +2,12 @@ require './config/environment'
 
 class ApplicationController < Sinatra::Base
 
-  configure do   
-    enable :sessions
-  end
-
+  
   configure do
     set :public_folder, 'public'
     set :views, 'app/views'
+    enable :sessions
+    set :session_secret,"hello"
   end
 
    get "/" do
@@ -24,7 +23,7 @@ class ApplicationController < Sinatra::Base
   def current_user
     User.find(session[:user_id])
   end
-  
+
   end
 
 end
