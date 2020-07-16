@@ -7,10 +7,10 @@ class JournalController < ApplicationController
         erb :'/journal/index'
     end
 
-    # get '/journal/all' do
-    #     @journals = Journal.all
-    #     erb :'/journal/all'
-    # end
+    get '/journal/all' do
+        @journal = Journal.all
+        erb :'/journal/all'
+    end
 
     #create
     get '/journal/new' do
@@ -34,6 +34,15 @@ class JournalController < ApplicationController
     end
 
     #delete
+    delete '/journal/:id/delete' do
+        @journal = Journal.find_by(id: params[:id])
+        @journal.destroy
+        redirect to :'/journal/index'
+    end   
 
+    get '/journal/:id' do
+        @journal = Journal.find_by(id: params[:id])
+        erb :'/journal/single'
+    end
 
 end

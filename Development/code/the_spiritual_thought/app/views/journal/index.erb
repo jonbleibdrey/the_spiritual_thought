@@ -1,11 +1,18 @@
 <h1>welcome to all your journals</h1>
+<a href="/journal/all">see what other people are writing about</a>
+<br>
 <a href="/journal/new"> create new journal</a>
 <p></p>
 <br>
 <% @journal.each do |journal|%>
-<p>title: <%= journal.title%> 
-content: <%= journal.content%>
-<a href="/journal/<%=journal.id%>/edit">edit posts</a>
+<a href="/journal/<%=journal.id%>"><%= journal.title%> </a> 
+<br>
+
+<a href="/journal/<%=journal.id%>/edit">edit post</a>
+<form method="post" action="/journal/<%= journal.id %>/delete">
+    <input type="hidden" name="_method" value="delete">
+    <input type="submit" value="Delete">
+</form>
 </p>
 
 <%end%>

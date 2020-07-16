@@ -11,19 +11,45 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+ <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
     <link rel="stylesheet" href="/stylesheets/main.css" />
   </head>
   <body>
-    <div class="wrapper">
+    <%if logged_in?%>
+<header class="top-nav">
+  <div class="navbar-fixed"> 
+      <nav>
+        <div class="nav-wrapper" style="background-color:#EEE2DC">
+          <a href="#" class="brand-logo"> <img src="/images/brand_logo.png" style="height:45px; margin-left:50px; margin-top:8px;"> </a>
+           <ul id="nav-mobile" class="right hide-on-med-and-down" style="margin-right: 50px;">
+            <li><a style="color:#AC3B61" href="/providers">Search Providers</a></li>
+            <li><a style="color:#AC3B61"href="/<%=session[:type]%>s/<%=current_user.id%>">My Profile</a></li>
+            <li><a style="color:#AC3B61"href="/logout">Log Out</a></li>
+          </ul>
+        </div>
+      </nav>
+  </div>
+</header>
+<%end%>
 
+<div class="wrapper">
+
+<div class="container">
         <%= yield %>
 
       <footer class="branding">
         <small>&copy; 2020 <strong>TheSpiritualThought</strong></small>
       </footer>
+      </div>
     </div>
 
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
+    
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
       <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>

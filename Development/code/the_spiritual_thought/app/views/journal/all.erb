@@ -1,6 +1,10 @@
 
-<% @journals.each do |journal|%>
-text:<%= journal.text%>
-content:<%= journal.content%>
+<h1>share your storys</h1>
+<br>
+<% @journal.each do |journal|%>
+
+<p>title:<%= journal.title%>
+content:<%= journal.content%></p>
+
 
 <%end%>
