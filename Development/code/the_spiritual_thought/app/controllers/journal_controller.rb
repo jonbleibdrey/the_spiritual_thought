@@ -9,6 +9,7 @@ class JournalController < ApplicationController
 
     get '/journal/all' do
         @journal = Journal.all
+        @user = User.all
         erb :'/journal/all'
     end
 

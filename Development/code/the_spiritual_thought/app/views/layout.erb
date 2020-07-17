@@ -6,50 +6,47 @@
   <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
-
     <title>TheSpiritualThought</title>
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+<!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
  <!-- Compiled and minified CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-
     <link rel="stylesheet" href="/stylesheets/main.css" />
+    
   </head>
   <body>
+  <!---navigator --->
     <%if logged_in?%>
-<header class="top-nav">
-  <div class="navbar-fixed"> 
-      <nav>
-        <div class="nav-wrapper" style="background-color:#EEE2DC">
-          <a href="#" class="brand-logo"> <img src="/images/brand_logo.png" style="height:45px; margin-left:50px; margin-top:8px;"> </a>
-           <ul id="nav-mobile" class="right hide-on-med-and-down" style="margin-right: 50px;">
-            <li><a style="color:#AC3B61" href="/providers">Search Providers</a></li>
-            <li><a style="color:#AC3B61"href="/<%=session[:type]%>s/<%=current_user.id%>">My Profile</a></li>
-            <li><a style="color:#AC3B61"href="/logout">Log Out</a></li>
-          </ul>
+      <header class="top-nav">
+        <div class="navbar-fixed"> 
+          <nav>
+            <div class="nav-wrapper" style="background-color:#f4ff81 ">
+              <a href="#" class="brand-logo"> <img src="https://www.pikpng.com/pngl/m/539-5395984_meditation-clipart-relaxation-therapy-yoga-black-and-white.png" style="height:45px; margin-left:50px; margin-top:8px;"> </a>
+                <ul id="nav-mobile" class="right hide-on-med-and-down" style="margin-right: 50px;">
+                <li><a style="color:#80d8ff " href="/journal/all">All journals</a></li>
+                <li><a style="color:#80d8ff "href="/user/homepage">Homepage</a></li>
+                <li><a style="color:#80d8ff "href="/user/logout">Log Out</a></li>
+                </ul>
+            </div>
+          </nav>
         </div>
-      </nav>
-  </div>
-</header>
-<%end%>
-
-<div class="wrapper">
-
-<div class="container">
+      </header>
+    <%end%>
+  <!---navigator --->
+    <div class="wrapper">
+      <div class="container">
         <%= yield %>
-
-      <footer class="branding">
+  <!---footer--->
+        <footer class="branding">
         <small>&copy; 2020 <strong>TheSpiritualThought</strong></small>
-      </footer>
+        </footer>
+  <!---footer---> 
       </div>
     </div>
-
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
-    
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-            
     <!--[if lt IE 7]>
       <script src="//ajax.googleapis.com/ajax/libs/chrome-frame/1.0.2/CFInstall.min.js"></script>
       <script>window.attachEvent("onload",function(){CFInstall.check({mode:"overlay"})})</script>

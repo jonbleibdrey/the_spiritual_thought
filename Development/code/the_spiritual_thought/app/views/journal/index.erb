@@ -1,18 +1,26 @@
-<h1>welcome to all your journals</h1>
-<a href="/journal/all">see what other people are writing about</a>
-<br>
+<h1>All your journals</h1>
 <a href="/journal/new"> create new journal</a>
+<br>
+<a href="/journal/all">other journals people have shared</a>
 <p></p>
 <br>
+
 <% @journal.each do |journal|%>
-<a href="/journal/<%=journal.id%>"><%= journal.title%> </a> 
+  <div class="card-panel hoverable"> 
+
+Title:<a href="/journal/<%=journal.id%>"><%= journal.title%> </a> 
+<br>
 <br>
 
-<a href="/journal/<%=journal.id%>/edit">edit post</a>
+<!--<a href="/journal/<%=journal.id%>/edit">edit post</a>-->
 <form method="post" action="/journal/<%= journal.id %>/delete">
     <input type="hidden" name="_method" value="delete">
-    <input type="submit" value="Delete">
+    <button class="btn waves-effect waves-light" type="submit" name="action">DELETE
+    <i class="material-icons right">send</i>
+  </button>
+ 
 </form>
+</div>
 </p>
 
 <%end%>

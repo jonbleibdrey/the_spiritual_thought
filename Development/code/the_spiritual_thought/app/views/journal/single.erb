@@ -1,4 +1,9 @@
+<h1>your journal entry</h1>
+
 title: <%=@journal.title%>
 <br>
 content: <%=@journal.content%>
-<a href="/journal/index" class="btn-small">mr button</a>
+<br>
+<a href="/journal/<%=@journal.id%>/edit" > edit</a>
+<br>
+<a href="/journal/index"> go home</a>
