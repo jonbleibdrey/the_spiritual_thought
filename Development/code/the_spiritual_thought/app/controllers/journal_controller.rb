@@ -19,14 +19,28 @@ class JournalController < ApplicationController
     end
 
     post '/journal/new' do
-        @journal = current_user.journals.create(title: params[:title], content: params[:content])
+        if params[:public] == "true"
+        @journal = current_user.journals.create(title: params[:title], content: params[:content], public: true)
+        else
+        @journal = current_user.journals.create(title: params[:title], content: params[:content], public: false)
+        end
+        binding.pry
         redirect to :'/journal/index'
     end
 
     #update
     get '/journal/:id/edit' do
         @journal = Journal.find_by(id: params[:id])
-        erb :'/journal/edit'
+        if session[:user_id] == @journal.user_id
+            erb :'/journal/edit'
+        else
+        redirect to '/journal/error'
+        end
+    
+    end
+
+    get '/journal/error' do
+        erb :'/journal/error'
     end
 
     patch '/journal/:id' do

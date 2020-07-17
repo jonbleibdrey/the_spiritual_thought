@@ -11,12 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20200713153349) do
+ActiveRecord::Schema.define(version: 20200717155952) do
 
   create_table "journals", force: :cascade do |t|
     t.string  "title"
     t.string  "content"
     t.integer "user_id"
+    t.boolean "public"
   end
 
   create_table "users", force: :cascade do |t|

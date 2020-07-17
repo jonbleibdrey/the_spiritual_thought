@@ -1,9 +1,25 @@
-<h1>your journal entry</h1>
+<h1>Your Journal Entry's</h1>
 
-title: <%=@journal.title%>
+ <div class="row">
+    <div class="col s12 m6">
+      <div class="card blue-grey darken-1">
+        <div class="card-content white-text">
+Title: <%=@journal.title%>
 <br>
-content: <%=@journal.content%>
+Content: <%=@journal.content%>
 <br>
+   
 <a href="/journal/<%=@journal.id%>/edit" > edit</a>
+</div>
+        <div class="card-action">
+        </div>
+      </div>
+    </div>
+  </div>
 <br>
-<a href="/journal/index"> go home</a>
+<a href="/journal/index"> back to your journals</a>
+
+
+ 
+        
+     
