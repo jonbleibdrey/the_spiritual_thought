@@ -24,7 +24,6 @@ class JournalController < ApplicationController
         else
         @journal = current_user.journals.create(title: params[:title], content: params[:content], public: false)
         end
-        binding.pry
         redirect to :'/journal/index'
     end
 
