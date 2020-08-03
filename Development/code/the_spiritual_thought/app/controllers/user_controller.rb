@@ -18,22 +18,35 @@ class UserController < ApplicationController
     end
 
     post '/user/signup' do
-        @user = User.create(name: params[:name], email: params[:email], password: params[:password])
-        session[:user_id] = @user.id
-    erb :"/user/homepage"
+        @user = User.new(name: params[:name], email: params[:email], password: params[:password])
+            if @user.save
+            login_help
+            erb :"/user/homepage"
+            else
+            redirect to "/user/signup"
+        end
     end
 
     post "/user/login" do
-        @user = User.find_by(:email => params[:email])
-       if @user && @user.authenticate(params[:password])
-        session[:user_id] = @user.id
-        # @session = session
-        erb :"/user/homepage"
-       end
+        login_help
      end
 
      get '/user/logout' do
         session.clear
         redirect to '/'
+     end
+
+     helpers do
+
+        def login_help
+                @user = User.find_by(:email => params[:email])
+            if @user && @user.authenticate(params[:password])
+                session[:user_id] = @user.id
+                erb :"/user/homepage"
+            else
+                redirect to "/user/login"
+            end
+
+        end
      end
 end

@@ -59,4 +59,5 @@ class JournalController < ApplicationController
         erb :'/journal/single'
     end
 
+
 end
